@@ -8,7 +8,7 @@ import ETHStreet from "./streets/ethereum.js";
 import ARBIStreet from "./streets/abitrum";
 import XMRStreet from "./streets/monero.js";
 import LTCStreet from "./streets/litecoin.js";
-import rca from "rainbow-colors-array";
+import { hexRainbow } from "./utils/rainbow.js";
 import Tutorial from "./vue/toasts/Tutorial";
 import Vue from "vue";
 import AppleTest from './utils/apple_test.js';
@@ -567,7 +567,7 @@ export class StreetController extends Phaser.Scene {
 	}
 	rainbowInterval() {
 		this.rainbowObjects = [];
-		this.hexRainbow = rca(30, "hex", true);
+		this.hexRainbow = hexRainbow(30, true);
 		this.rainbowIndex = 0;
 		this.time.addEvent({
 			delay: 50,

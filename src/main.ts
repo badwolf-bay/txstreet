@@ -1,10 +1,14 @@
 // @ts-nocheck
 import Vue from "vue";
+import { Buffer } from "buffer";
 import i18n from "./i18n";
 import "./assets/scss/main.scss";
 import Main from "./components/vue/Main.vue";
 import Toast, { TYPE } from "vue-toastification";
 import Close from "./components/vue/toasts/Close";
+
+// webpack 4 polyfilled Buffer automatically; bchaddrjs (BCH addresses) still expects it.
+window.Buffer = window.Buffer || Buffer;
 
 String.prototype.hashCode = function () {
 	var hash = 0,

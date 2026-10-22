@@ -1,17 +1,18 @@
-const enUS = require('date-fns/locale/en-US/index');
-const de = require('date-fns/locale/de/index');
+import { enUS, de } from "date-fns/locale";
+import en from "./en.json";
+import deMessages from "./de.json";
 
 const supportedLocales = {
-	"en": {
-        title: "English",
-        fns: enUS,
-        messages: require("./en.json")
-    },
-    de:{
-        title: "Deutsche",
-        fns: de,
-        messages: require("./de.json")
-    },
+	en: {
+		title: "English",
+		fns: enUS,
+		messages: en,
+	},
+	de: {
+		title: "Deutsche",
+		fns: de,
+		messages: deMessages,
+	},
 };
 
-module.exports = supportedLocales;
+export default supportedLocales;

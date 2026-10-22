@@ -17,15 +17,15 @@ The frontend is built with Vue, Bulma and Phaser 3. It connects to TxStreet back
 
 # Running Locally
 
--   Install NodeJS (tested with v16.5)
+-   Install NodeJS 18 or newer (tested with v22)
 -   Install Yarn (`npm install -g yarn`)
 -   Install Git
 
 -   Clone this repo `git clone https://github.com/txstreet/txstreet.git`
 -   Copy the contents of `.env.example` to a new file named `.env`
 -   Run the command `yarn`
--   Run the command `yarn run build`
--   For a live dev server run the command `yarn run serve`
+-   For a live dev server run the command `yarn serve` (Vite, http://localhost:8080). Backend calls are proxied to `XMR_BACKEND` (default `http://localhost:8081`)
+-   For a production build run the command `yarn build` (output in `dist/`)
 
 ---
 
