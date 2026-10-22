@@ -203,28 +203,18 @@ Person.prototype.addMove = function (x, y, cfg = {}) {
 
 	let feeDifference = this.getData("feeDifference") || 0;
 
+	// Despite its name, pixelsPerSecond is a speed in pixels per frame at 60 FPS.
 	let pixelsPerSecond =
 		typeof cfg.pixelsPerSecond !== "undefined" ? cfg.pixelsPerSecond : this.scene.personPixelsPerSecond;
 	pixelsPerSecond -= feeDifference;
-	pixelsPerSecond *= 60 / this.scene.game.loop.actualFps;
-	pixelsPerSecond = toRes(pixelsPerSecond);
-	let totalSteps = distance / pixelsPerSecond;
-	let duration = (totalSteps / this.scene.game.loop.actualFps) * 1000;
-	if (typeof cfg.maxDuration !== "undefined") {
-		if (duration > cfg.maxDuration) {
-			totalSteps = (cfg.maxDuration / 1000) * this.scene.game.loop.actualFps;
-			duration = cfg.maxDuration;
-		}
-	}
-	if (typeof cfg.minDuration !== "undefined") {
-		if (duration < cfg.minDuration) {
-			totalSteps = (cfg.minDuration / 1000) * this.scene.game.loop.actualFps;
-			duration = cfg.minDuration;
-		}
-	}
+	let pixelsPerMs = (toRes(pixelsPerSecond) * 60) / 1000;
+	let duration = distance / pixelsPerMs;
+	if (typeof cfg.maxDuration !== "undefined" && duration > cfg.maxDuration) duration = cfg.maxDuration;
+	if (typeof cfg.minDuration !== "undefined" && duration < cfg.minDuration) duration = cfg.minDuration;
 
-	let stepX = distanceX / totalSteps;
-	let stepY = distanceY / totalSteps;
+	// Movement for one 60 FPS frame; stepMove() replaces these with the actual per-frame movement.
+	let stepX = (distanceX / duration) * (1000 / 60);
+	let stepY = (distanceY / duration) * (1000 / 60);
 
 	let direction = this.getDirection(lastMove.x, lastMove.y, x, y);
 	let scaleAdjust = 0.47 / this.getData("maxScale");
@@ -238,7 +228,9 @@ Person.prototype.addMove = function (x, y, cfg = {}) {
 		stepX: stepX,
 		stepY: stepY,
 		step: 0,
-		totalSteps: totalSteps,
+		duration: duration,
+		elapsed: 0,
+		done: false,
 		timeScale: timeScale,
 		direction: direction,
 		delay: cfg.delay ? cfg.delay : 0,
@@ -269,6 +261,23 @@ Person.prototype.addMove = function (x, y, cfg = {}) {
 	if (cfg.data) move.data = cfg.data;
 
 	this.moveList.push(move);
+};
+
+// Advances a move by `delta` ms, interpolating from where the person stood when the move started.
+// Time-based, so walking speed doesn't depend on the frame rate. Returns true once the target is reached.
+Person.prototype.stepMove = function (move, delta) {
+	if (move.elapsed === 0) {
+		move.startX = this.x;
+		move.startY = this.y;
+	}
+	move.elapsed += delta;
+	const progress = move.duration > 0 ? Math.min(1, move.elapsed / move.duration) : 1;
+	const x = move.startX + (move.x - move.startX) * progress;
+	const y = move.startY + (move.y - move.startY) * progress;
+	move.stepX = x - this.x;
+	move.stepY = y - this.y;
+	this.setPosition(x, y);
+	return progress >= 1;
 };
 
 Person.prototype.scaleTween = function (target, scale, delay, duration) {

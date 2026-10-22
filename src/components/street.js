@@ -2903,6 +2903,8 @@ export class Street extends Phaser.Scene {
 	}
 
 	streetUpdate() {
+		// Unsmoothed time since the last frame (ms), so positions track real time; capped so a stall does not make people jump.
+		const delta = Math.min(this.game.loop.rawDelta, 250);
 		if (!this.vue.isConnected) return;
 		for (let i = this.movingPeople.length - 1; i >= 0; i--) {
 			const person = this.movingPeople[i];
@@ -2934,7 +2936,7 @@ export class Street extends Phaser.Scene {
 				if (person.animsEnabled && !person.anims.paused) person.anims.pause();
 				continue;
 			}
-			if (move.step >= move.totalSteps - 1) {
+			if (move.done) {
 				if (move.status) person.setLineData("status", move.status);
 				person.setPosition(move.x, move.y);
 				person.moveList.shift();
@@ -2945,7 +2947,7 @@ export class Street extends Phaser.Scene {
 				if (move.status) person.setLineData("status", move.status);
 				if (move.delay > 0) {
 					if (person.animsEnabled && !person.anims.paused) person.anims.pause();
-					move.delay -= 60 / this.game.loop.actualFps;
+					move.delay -= (delta * 60) / 1000;
 					continue;
 				}
 				move.onStart();
@@ -2961,8 +2963,7 @@ export class Street extends Phaser.Scene {
 				}
 			}
 			if (person.animsEnabled && person.anims.paused) person.anims.resume();
-			person.x += move.stepX;
-			person.y += move.stepY;
+			move.done = person.stepMove(move, delta);
 			move.step++;
 			if (
 				status === "boarding" &&

@@ -57,6 +57,9 @@ export default {
 				let antialias = true;
 				let resWidth = 1920;
 				let tier = gpuTier?.tier || 3;
+				// FALLBACK means the GPU wasn't found in detect-gpu's benchmarks (common for Apple Silicon in Chrome),
+				// not that it is slow; don't drop to 15 FPS for that.
+				if (gpuTier?.type === "FALLBACK") tier = 3;
 				if(gpuTier.gpu && gpuTier.gpu === "apple gpu (Apple GPU)") tier = 3;
 				switch (tier) {
 					case 0:
@@ -91,7 +94,7 @@ export default {
 				if (!userSettings.globalSettings.fps.initialUserLoaded) {
 					config.fps.target = fps;
 					config.fps.min = fps;
-					config.fps.forceSetTimeOut = fps < 60;
+					config.fps.limit = fps < 60 ? fps : 0;
 					userSettings.globalSettings.fps.value = fps;
 				}
 				if (!userSettings.globalSettings.antialias.initialUserLoaded) {

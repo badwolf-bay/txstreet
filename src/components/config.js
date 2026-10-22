@@ -1638,7 +1638,8 @@ export const config = {
 	fps: {
 		target: userSettings.globalSettings.fps.value,
 		min: userSettings.globalSettings.fps.value,
-		forceSetTimeOut: userSettings.globalSettings.fps.value < 60,
+		// Caps the frame rate while staying on requestAnimationFrame (smoother than forceSetTimeOut).
+		limit: userSettings.globalSettings.fps.value < 60 ? userSettings.globalSettings.fps.value : 0,
 	},
 	disabledStreets: [
 		// "Ethereum"
