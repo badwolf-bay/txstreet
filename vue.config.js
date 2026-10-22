@@ -71,6 +71,15 @@ module.exports = {
 			}])
 		],
 	},
+	// In development, forward backend calls to the Monero backend so the browser only needs this origin.
+	devServer: {
+		host: "0.0.0.0",
+		disableHostCheck: true,
+		proxy: {
+			"^/(static/(live|blocks)|api/v2|healthcheck)": { target: process.env.XMR_BACKEND || "http://localhost:8081" },
+			"^/socket.io": { target: process.env.XMR_BACKEND || "http://localhost:8081", ws: true },
+		},
+	},
 	publicPath: "/",
 	outputDir: "dist",
 	runtimeCompiler: true,
