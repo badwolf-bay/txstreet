@@ -3055,8 +3055,10 @@ export class Street extends Phaser.Scene {
 	}
 
 	removeTweens() {
-		for (let i = 0; i < this.tweens._active.length; i++) {
-			let tween = this.tweens._active[i];
+		// getTweens() returns a copy, so completing tweens while iterating is safe.
+		const activeTweens = this.tweens.getTweens();
+		for (let i = 0; i < activeTweens.length; i++) {
+			let tween = activeTweens[i];
 			if (tween.keep) continue;
 			if (typeof tween.complete === "function") tween.complete();
 		}
@@ -3231,9 +3233,8 @@ export class Street extends Phaser.Scene {
 	}
 
 	snowfall() {
-		this.snowParticles = this.add.particles(getSheetKey("snow.png"));
-		this.snowParticles.setDepth(this.topDepth + 100);
-		this.snowParticleEmitter = this.snowParticles.createEmitter({
+		// Phaser 3.60+: add.particles() returns the emitter itself (no manager / createEmitter).
+		this.snowParticleEmitter = this.add.particles(0, 0, getSheetKey("snow.png"), {
 			frame: ["snow.png"],
 			speedY: { min: toRes(20), max: toRes(22) },
 			x: { min: 0, max: toRes(930) },
@@ -3247,9 +3248,9 @@ export class Street extends Phaser.Scene {
 			},
 		});
 
-		this.snowParticles2 = this.add.particles(getSheetKey("snow.png"));
-		this.snowParticles2.setDepth(this.topDepth + 100);
-		this.snowParticleEmitter2 = this.snowParticles2.createEmitter({
+		this.snowParticleEmitter.setDepth(this.topDepth + 100);
+
+		this.snowParticleEmitter2 = this.add.particles(0, 0, getSheetKey("snow.png"), {
 			frame: ["snow.png"],
 			speedY: { min: toRes(30), max: toRes(32) },
 			x: { min: 0, max: toRes(930) },
@@ -3264,6 +3265,7 @@ export class Street extends Phaser.Scene {
 			// blendMode: "OVERLAY",
 			// tint: 0xffffff
 		});
+		this.snowParticleEmitter2.setDepth(this.topDepth + 100);
 
 		let height = toRes(this.sceneHeight);
 		let particleX = 0;

@@ -1193,8 +1193,10 @@ export class Street extends Phaser.Scene {
 	}
 
 	removeTweens() {
-		for (let i = 0; i < this.tweens._active.length; i++) {
-			let tween = this.tweens._active[i];
+		// getTweens() returns a copy, so completing tweens while iterating is safe.
+		const activeTweens = this.tweens.getTweens();
+		for (let i = 0; i < activeTweens.length; i++) {
+			let tween = activeTweens[i];
 			if (tween.keep) continue;
 			if (typeof tween.complete === "function") tween.complete();
 		}
