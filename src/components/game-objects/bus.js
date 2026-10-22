@@ -636,7 +636,7 @@ Bus.prototype.pplBlitterMWEB = function (force = false, skipErase = false, overr
 	if (pplPerRow < 2) spacing = rtWidth;
 
 	if (!this.mwebPplRt) {
-		this.mwebPplRt = this.scene.add.renderTexture(-45, 270, rtWidth, rtHeight);
+		this.mwebPplRt = this.scene.add.renderTexture(-45, 270, rtWidth, rtHeight).setOrigin(0, 0);
 		this.mwebPplRt.setDepth(200);
 		this.add(this.mwebPplRt);
 	} else {
@@ -735,7 +735,8 @@ Bus.prototype.pplBlitter = function (force = false, skipErase = false, overrideH
 	if (pplPerRow < 2) spacing = rtWidth;
 
 	if (!this.pplRt) {
-		this.pplRt = this.scene.add.renderTexture(-55, -98, rtWidth, rtHeight);
+		// Phaser 3.60+ render textures default to a centred origin; this code positions them by their top-left corner.
+		this.pplRt = this.scene.add.renderTexture(-55, -98, rtWidth, rtHeight).setOrigin(0, 0);
 		this.add(this.pplRt);
 	} else {
 		this.pplRt.clear();
@@ -749,7 +750,7 @@ Bus.prototype.pplBlitter = function (force = false, skipErase = false, overrideH
 		if (sheet === "default") continue;
 		const sheetKey = String(c.scaleAdjust) + String(c.pixelArt);
 		if (!this.drawers[sheetKey]) {
-			this.drawers[sheetKey] = this.scene.add.renderTexture(0, 0, rtWidth / c.scaleAdjust, rtHeight / c.scaleAdjust).setVisible(false);
+			this.drawers[sheetKey] = this.scene.add.renderTexture(0, 0, rtWidth / c.scaleAdjust, rtHeight / c.scaleAdjust).setOrigin(0, 0).setVisible(false);
 			this.drawers[sheetKey].setScale(c.scaleAdjust);
 			//FIX BLUR
 			if (c.pixelArt) this.drawers[sheetKey].texture.setFilter(Phaser.Textures.FilterMode.NEAREST);

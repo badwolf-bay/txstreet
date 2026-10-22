@@ -1871,7 +1871,7 @@ export class Street extends Phaser.Scene {
 								0,
 								sourceTexture.origWidth,
 								sourceTexture.origHeight
-							);
+							).setOrigin(0, 0);
 							this.crowd.add(this.crowd.positions[i]);
 							this.crowd.positions[i].draw(sourceTexture);
 							this.crowd.positions[i].setPosition(0, positionY);

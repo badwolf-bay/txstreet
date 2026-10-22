@@ -144,7 +144,8 @@ export class StreetController extends Phaser.Scene {
 		this.crowdWidth = rWidth;
 		let angles = [0, 3, 6];
 		for (let i = 0; i < number; i++) {
-			let texture = this.add.renderTexture(0, 0, rWidth, rHeight).setVisible(false);
+			// Phaser 3.60+ render textures default to a centred origin; drawing this one elsewhere expects top-left.
+			let texture = this.add.renderTexture(0, 0, rWidth, rHeight).setOrigin(0, 0).setVisible(false);
 			texture.origHeight = rHeight;
 			texture.origWidth = rWidth;
 			let blitter = this.add.blitter(0, 0, getSheetKey("person-")).setVisible(false);
