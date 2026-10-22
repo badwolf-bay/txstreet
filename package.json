@@ -13,8 +13,6 @@
 		"create-env": "printenv > .env"
 	},
 	"dependencies": {
-		"@walletconnect/web3-provider": "^1.7.1",
-		"authereum": "^0.1.14",
 		"bchaddrjs": "^0.4.9",
 		"bulma": "^0.8.1",
 		"bulma-extensions": "^6.2.7",
@@ -37,8 +35,6 @@
 		"vue-multiselect": "^2.1.6",
 		"vue-toastification": "^1.7.11",
 		"vue-virtual-scroll-list": "^2.3.3",
-		"web3": "^1.7.0",
-		"web3modal": "^1.9.8",
 		"yarn": "^1.22.11"
 	},
 	"devDependencies": {

@@ -1,8 +1,8 @@
 <template>
 	<div class="tx-window">
-		<a class="person-image-container" target="_blank" :href="openSeaUrl" v-if="personImageUrl || isRollup">
+		<span class="person-image-container" v-if="personImageUrl || isRollup">
 			<img class="person-image" :class="{ 'pixel-art': pixelArt }" :src="spriteUrl" />
-		</a>
+		</span>
 		<span v-else-if="txData.bh || confirmed" class="person-image-container">
 			<span class="person-image tag is-success fas fa-check is-large" />
 		</span>
@@ -306,15 +306,6 @@ export default {
 					process.env.VUE_APP_VERSION
 				);
 			}
-		},
-		openSeaUrl() {
-			if (!this.txData?.nftChar?.collectionSlug || !this.txData?.nftChar?.tokenId) return;
-			return (
-				"https://opensea.io/assets/" +
-				charConfig[this.txData.nftChar.collectionSlug].contract +
-				"/" +
-				this.txData.nftChar.tokenId
-			);
 		},
 		copyLinkValue() {
 			return (

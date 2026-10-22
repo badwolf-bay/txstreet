@@ -4,7 +4,6 @@
 			<viz-launcher ref="launcher" />
 		</div>
 		<div :style="'top:' + sectionHeight" class="below-content">
-			<MoonHeadAd class="moonhead-ad" />
 			<section class="hero is-primary is-medium" style="position: relative">
 				<picture class="alien-moving">
 					<source srcset="/static/img/singles/webp/alien-side.webp" type="image/webp" />
@@ -140,7 +139,6 @@
 
 <script>
 import VizLauncher from "../templates/VizLauncher.vue";
-import MoonHeadAd from "../templates/MoonHeadAd.vue";
 import Transactions from "../templates/Transactions.vue";
 import Blocks from "../templates/Blocks.vue";
 import { enabledConfig } from "../../../config";
@@ -149,7 +147,6 @@ import { calcStatValue } from "../../../utils/";
 export default {
 	components: {
 		VizLauncher,
-		MoonHeadAd,
 		Transactions,
 		Blocks,
 	},
@@ -201,10 +198,6 @@ export default {
 	width: 100%;
 	position: absolute;
 	left: 0;
-
-	.moonhead-ad {
-		margin: 50px 0;
-	}
 }
 .socials{
     img{

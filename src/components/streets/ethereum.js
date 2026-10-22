@@ -2,8 +2,6 @@ import { Street } from "../street.js";
 import { toRes, ethNewTxSetDepending } from "../utils/";
 import { ETH, ethUnits } from "../config.js";
 import i18n from "../../i18n";
-import eventHub from "../vue/eventHub.js";
-import state from "../../wallet";
 
 export default class ETHStreet extends Street {
 	constructor(side) {
@@ -90,29 +88,6 @@ export default class ETHStreet extends Street {
 		this.addressNonces = this.config.addressNonces;
 
 		this.streetCreate();
-		this.vue.navigation.unshift({
-			key: "characters",
-			html: "<span class='fas fa-user-astronaut'></span>",
-			title: "Character Select",
-			tooltip: "Character Select",
-			hasWindow: true,
-		});
-
-		this.vue.windowData.push({
-			key: "characters",
-			title: "Character Select",
-			components: [
-				{
-					name: "CharacterSelect",
-				},
-			],
-			styles: {
-				width: "min(965px, 80%)",
-				height: "90%",
-			},
-			position: "center",
-		});
-
 		this.vue.busFeeTitle = "Gwei";
 		(this.vue.busFeeTitleLong = () => {
 			return "Tip Price (Gwei)";
@@ -122,10 +97,6 @@ export default class ETHStreet extends Street {
 			}),
 			this.ethBuses();
 		this.createPeople();
-		eventHub.$on(this.ticker + "-follow", (address) => {
-			this.followAddress(address);
-		});
-		if (state.address) this.followAddress(state.address);
 	}
 
 	crowdCountDisplay() {

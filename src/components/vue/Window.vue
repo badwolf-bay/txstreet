@@ -51,7 +51,6 @@ import LoadWiki from "./LoadWiki.vue";
 import Spacer from "./Spacer.vue";
 // import Iframe from "./Iframe.vue";
 import Address from "./Address.vue";
-import CharacterSelect from "./CharacterSelect.vue";
 import { toResRev } from "../utils/";
 import { config } from "../config.js";
 
@@ -67,7 +66,6 @@ export default {
 		HtmlBlock,
 		LoadHtml,
 		LoadWiki,
-		CharacterSelect,
 		Spacer,
 		Address,
 	},

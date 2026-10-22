@@ -58,30 +58,6 @@
 								<label for="dual-view">Load Two (Desktop)</label>
 							</div>
 						</div>
-						<div v-if="!$root.loading" id="zoomer_video" class="columns is-centered box no-box">
-							<video
-								class="column is-half"
-								ref="header_video"
-								muted="muted"
-								loop="loop"
-								playsinline=""
-								autoplay="autoplay"
-							>
-								<source
-									src="https://player.vimeo.com/progressive_redirect/playback/710188193/rendition/360p/file.mp4?loc=external&signature=118de6a983ba09acdbe6d6198ce28b2aaa31ff662302c3ac2082c1575a0bc7c6"
-								/>
-							</video>
-							<div class="column zoomer-info">
-								<div class="title is-3"><a href="https://moonheads.io" target="_blank">TxStreet NFTs</a></div>
-								<div class="subtitle is-6">🚀 Backed by rETH 🚀</div>
-								<a
-									href="https://pro.opensea.io/collection/moonheads-zoomers"
-									target="_blank"
-									class="button is-success"
-									>Buy</a
-								>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div v-else class="lds-ellipsis">
@@ -274,27 +250,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-#zoomer_video {
-	.title,
-	.subtitle {
-		color: black !important;
-	}
-	.zoomer-info {
-		padding-left: 2rem;
-		padding-right: 2rem;
-	}
-	margin-top: 2rem;
-	padding: 0.5rem !important;
-	video {
-		height: 180px;
-		width: 180px;
-		border-radius: 10px;
-		display: inline-block;
-	}
-	.button {
-		font-size: 1.4rem !important;
-	}
-}
 .launch-visualizer {
 	border-radius: 0 !important;
 	.launch-bg-overlay {

@@ -2,8 +2,6 @@ import { Street } from "../mall.js";
 import { toRes, ethNewTxSetDepending } from "../utils/";
 import { ARBI, ethUnits } from "../config.js";
 import i18n from "../../i18n";
-import eventHub from "../vue/eventHub.js";
-import state from "../../wallet";
 
 export default class ARBIStreet extends Street {
 	constructor(side) {
@@ -85,21 +83,6 @@ export default class ARBIStreet extends Street {
 
 		this.streetCreate();
 
-		this.vue.windowData.push({
-			key: "characters",
-			title: "Character Select",
-			components: [
-				{
-					name: "CharacterSelect",
-				},
-			],
-			styles: {
-				width: "min(965px, 80%)",
-				height: "90%",
-			},
-			position: "center",
-		});
-
 		this.vue.busFeeTitle = "Gwei";
 		(this.vue.busFeeTitleLong = () => {
 			return "Tip Price (Gwei)";
@@ -109,10 +92,6 @@ export default class ARBIStreet extends Street {
 			})
 
 		this.createPeople();
-		eventHub.$on(this.ticker + "-follow", (address) => {
-			this.followAddress(address);
-		});
-		if (state.address) this.followAddress(state.address);
 	}
 
 	crowdCountDisplay() {

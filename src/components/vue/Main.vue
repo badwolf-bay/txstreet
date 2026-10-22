@@ -46,7 +46,6 @@ export default {
 			selectedCoins: ["XMR", null],
 			now: 0,
 			nowMinute: 0,
-			moonHeadAds: [],
 			windowWidth: window.innerWidth,
 			windowHeight: window.innerHeight,
 			softWindowHeight: window.innerHeight,
@@ -69,7 +68,6 @@ export default {
 	},
 	mounted() {
 		this.nowInterval();
-		this.getAd();
 
 		//temp disable
 		setInterval(() => {
@@ -119,20 +117,6 @@ export default {
 			if (!ticker) return "000000";
 			let coinConfig = this.enabledConfig[ticker];
 			return coinConfig?.color || "000000";
-		},
-		async getAd(retry = 0) {
-			if (retry > 3) return;
-			let url = process.env.VUE_APP_MOONHEADS_SERVER + "/api/currentAd";
-			let response = await fetch(url);
-			let json = await response.json();
-			if (Array.isArray(json)) {
-				Vue.set(this, "moonHeadAds", json);
-			} else {
-				setTimeout(() => {
-					retry++;
-					this.getAd(retry);
-				}, 5000);
-			}
 		},
 		nowInterval() {
 			setInterval(() => {

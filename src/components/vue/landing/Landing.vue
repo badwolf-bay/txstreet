@@ -43,7 +43,6 @@
 					</button>
 				</div>
 				<div class="buttons top-right-buttons">
-					<connect />
 					<button v-if="!darkMode" @click="darkMode = !darkMode" class="button is-dark">
 						<span class="fas fa-moon"></span>
 					</button>
@@ -55,7 +54,6 @@
 					{{ activeConfig.pageTitle || activeConfig.title }}
 				</div>
 			</div>
-			<MoonHeadAd v-if="activeConfig.hasAd" />
 			<component :is="activeConfig.page" v-if="activeConfig.page"></component>
 		</section>
 	</div>
@@ -67,7 +65,6 @@ import { resetNeededRooms } from "../../utils";
 import Home from "./pages/Home.vue";
 import GasPrices from "./pages/GasPrices.vue";
 import Happening from "./pages/Happening.vue";
-import MoonHeadAd from "./templates/MoonHeadAd.vue";
 import { getNeededRooms } from "./controllers";
 
 export default {
@@ -76,8 +73,6 @@ export default {
 		GasPrices,
 		Happening,
 		Transactions: () => import("./pages/Transactions.vue"),
-		MoonHeadAd,
-		Connect: () => import("../Connect.vue"),
 	},
 	data: function () {
 		return {
@@ -97,13 +92,11 @@ export default {
 					pageTitle: "⛽ ETH Gas Prices (Gwei)",
 					page: "GasPrices",
 					description: "Ethereum gas prices in real time based on pending transactions in the mempool.",
-					hasAd: true,
 				},
 				happening: {
 					title: "👀 Happening",
 					page: "Happening",
 					description: "Free Alpha. See what's happening on Ethereum in real time.",
-					hasAd: true,
 				},
 				txs: {
 					title: "Transactions",
@@ -467,8 +460,5 @@ export default {
 }
 .grid-item:not(.loading-vis) {
 	z-index: 1;
-}
-.moonhead-ad {
-	margin-bottom: 20px;
 }
 </style>
