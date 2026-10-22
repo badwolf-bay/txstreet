@@ -1304,7 +1304,7 @@ export const XMR = {
 			signTitle: "Median Tx Fee (XMR)",
 			value: false,
 			socket: true,
-			wiki: ["XMR/stats/medianFeeXMR", "common/stats/transaction-fees"],
+			wiki: ["XMR/stats/medianFeeXMR", "common/transaction-fees"],
 		},
 		"medianFee-aByte": {
 			title: () => {

@@ -1,0 +1,5 @@
+{
+    "title": "Block Time",
+    "source": "https://www.gemini.com/cryptopedia",
+    "html": "Block time refers to the amount of time it takes for a new block to be added to a blockchain. In theory, each blockchain network defines its own expected block time, which can vary from several seconds to minutes. Bitcoin, for example, aims to have a block time of 10 minutes. In reality, block times can vary from their predetermined goals. If a network is producing blocks faster or slower than its expected block rate, the block difficulty can be adjusted in an effort to recalibrate the system."
+}

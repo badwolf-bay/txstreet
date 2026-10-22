@@ -1,0 +1,5 @@
+{
+    "title": "Blockchain",
+    "source": "https://www.gemini.com/cryptopedia/blockchain-technology-explained",
+    "html": "A blockchain is a public ledger of transactions that is maintained and verified by a decentralized, peer-to-peer network of computers that adhere to a consensus mechanism to confirm data. Each computer in a blockchain network maintains its own copy of the shared record, making it nearly impossible for a single computer to alter any past transactions or for malicious actors to overwhelm the network. Sufficiently decentralized blockchains do not rely on centralized authorities or intermediaries to transact globally, securely, verifiably, and quickly, making technology like cryptocurrency possible."
+}

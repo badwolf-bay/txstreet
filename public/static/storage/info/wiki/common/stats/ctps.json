@@ -1,0 +1,3 @@
+{
+    "html": "Confirmed transactions per second measures rate of confirmed transactions per second over the past hour. If there was no confirmed block in the past hour, the timespan is increased past one hour to the last block's timestamp."
+}

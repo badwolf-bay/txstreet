@@ -1,0 +1,4 @@
+{
+    "title": "Base Fee",
+    "html": "Base Fee measures the current base fee by performing calculations with these three values from the previous block: base fee, gas used and gas limit. The calculations can be found on <a href='https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md' target='_blank'>this page</a>. Base Fee was implemented in EIP1559 in August 2021."
+}

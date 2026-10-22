@@ -1,0 +1,3 @@
+{
+    "html": "Pending Batch Count measures the current number of transactions that have not yet been posted to the Ethereum blockchain with a rollup transaction. This count consists of transactions that have been confirmed on the rollup blockchain (For example: Arbitrum)."
+}

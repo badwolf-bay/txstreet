@@ -1,0 +1,5 @@
+{
+    "title": "Optimistic Rollups",
+    "source": "https://docs.ethhub.io/ethereum-roadmap/layer-2-scaling/optimistic_rollups/",
+    "html": "Optimistic Rollups (ORs) are one type of layer 2 constructions that do not run on Ethereum's base layer but on top of it. This enables running smart contracts at scale while still being secured by Ethereum. These constructions resemble Plasma, but trade the almost infinite scalability of Plasma to run an EVM compatible Virtual Machine called OVM (Optimistic Virtual Machine) which enables ORs to run anything Ethereum can.<br/> The name Optimistic Rollups originates from how the solution works. 'Optimistic' is used because aggregators publish only the bare minimum information needed with no proofs, assuming the aggregators run without commiting frauds, and only providing proofs in case of fraud. 'Rollups' is used because transactions are commited to main chain in bundles (that is, they are rolled-up)."
+}

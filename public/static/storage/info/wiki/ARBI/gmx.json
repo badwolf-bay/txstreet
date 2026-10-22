@@ -1,0 +1,5 @@
+{
+    "title": "GMX",
+    "source": "https://gmxio.gitbook.io/gmx/",
+    "html": "GMX is a decentralized spot and perpetual exchange that supports low swap fees and zero price impact trades.<br/>Trading is supported by a unique multi-asset pool that earns liquidity providers fees from market making, swap fees and leverage trading.<br/>Dynamic pricing is supported by Chainlink Oracles and an aggregate of prices from leading volume exchanges."
+}

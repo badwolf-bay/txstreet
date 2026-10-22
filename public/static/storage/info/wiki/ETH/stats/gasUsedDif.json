@@ -1,0 +1,3 @@
+{
+    "html": "Median transaction gas used/limit. First, the average (gasUsed / gas) of each transaction greater than 21000 gas in a recently mined block is obtained. This average is appended to a list of averages (no more than 500 in length), from which the final median result is reached."
+}

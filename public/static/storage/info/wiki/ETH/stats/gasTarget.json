@@ -1,0 +1,3 @@
+{
+    "html": "Gas target measures the current 'long-term average target' of the 'Gas Used' value in each block. This can be found be dividing the current 'Gas Limit' by 2. Gas Target was implemented in EIP1559 in August 2021."
+}

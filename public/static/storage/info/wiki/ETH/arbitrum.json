@@ -1,0 +1,5 @@
+{
+    "title": "Arbitrum",
+    "source": "https://zipmex.com/learn/what-is-arbitrum",
+    "html": "<div class='notification is-info'>Transactions leaving the Ethereum Post represent rollups (Arbitrum transactions combined and posted to Ethereum). The rest of the transactions leaving the Arbitrum mall represent all other transactions associated with Arbitrum on the Ethereum mainnet. To see transactions happening directly on the Arbitrum blockchain, switch to the Arbitrum Mall view with the dropdown at the top of this page.</div>Arbitrum is a layer-2 solution project designed to enhance Ethereum smart contracts in terms of speed scalability while adding additional privacy features to boot.<br/>The platform is designed to make it easy for developers to execute unmodified Ethereum Virtual Machine (EVM) contracts and Ethereum transactions at layer-2 while still benefiting from Ethereum’s excellent layer-1 security. <br/>Arbitrum itself was created to address some of the shortcomings of current Ethereum-based smart contracts. As for the drawbacks, such as long transactions and high execution costs."
+}

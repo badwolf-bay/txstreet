@@ -1,0 +1,5 @@
+{
+    "title": "Cash Fusion",
+    "source": "https://www.gemini.com/cryptopedia",
+    "html": "CashFusion is a privacy tool for concealing Bitcoin Cash transactions. It is an improvement on the CashShuffle tool with enhanced privacy characteristics. Improvements include a higher max amount that can be shuffled, the ability to “shuffle” or “fuse” different amounts than other participants, and more UTXO combinations, thus making transactions much more difficult to trace. Tor is also built into the CashFusion protocol to mask user IP addresses."
+}

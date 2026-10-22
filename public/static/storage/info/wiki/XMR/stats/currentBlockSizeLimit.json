@@ -1,0 +1,3 @@
+{
+    "html": "Current Block Size Limit measures the dynamic block size limit calculated by Monero nodes. This value can change after every block, as it is twice the median block size of the last 100 blocks."
+}

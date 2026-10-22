@@ -1,0 +1,5 @@
+{
+    "title": "Aave",
+    "source": "https://www.gemini.com/cryptopedia/aave-crypto-liquidity-token-protocol",
+    "html": "Aave is a decentralized lending and borrowing platform on Ethereum. Aave users can take out loans by providing collateral in the form of crypto assets. Lenders who provide collateral to Aave receive aTokens in return, which automatically pay interest to the holder with funds earned from platform trading fees. Aave has pioneered the technology of ‘flash loans,’ which allow for the uncollateralized lending of funds, so long as the principal is repaid within the same Ethereum transaction block."
+}

@@ -1,0 +1,3 @@
+{
+    "html": "Bytes Per Second measures the sum of the size (Bytes or vBytes for BTC) of each new and unique transaction broadcasted within the last 5 minutes. This number is then divided by 300 to reach an average 'per second' result."
+}

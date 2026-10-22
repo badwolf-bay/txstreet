@@ -1,0 +1,5 @@
+{
+    "title": "Memo",
+    "source": "https://jasonc.me/blog/what-is-memo",
+    "html": "Memo is an open-source social media protocol built on Bitcoin Cash that describes how actions, like 'posting', are encoded. A software named member makes those actions easily accessible and understandable for social media sites based on the protocol. These include memo.cash (closed source) and member.cash (open source)."
+}

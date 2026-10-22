@@ -1,0 +1,3 @@
+{
+    "html": "Block Gas Limit is the maximum amount of gas that a block is allowed to contain, using the sum of the gas used by all transactions in that block. The maximum gas limit is voted on by miners of the Ethereum Network."
+}

@@ -1,0 +1,3 @@
+{
+    "html": "Median Contract Fee measures the median fee (in USD) from new and unique transactions broadcasted within the last 5 minutes with a gasLimit greater than 21000. Since Ethereum gas fees are not exact until after the transaction is confirmed, this gas is first divided by 'Median Tx Gas Used/Limit' for transactions with a gasLimit greater than 42000. This is why this number is an estimate and not exact."
+}

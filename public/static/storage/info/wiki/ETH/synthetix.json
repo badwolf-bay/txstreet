@@ -1,0 +1,5 @@
+{
+    "title": "Synthetix",
+    "source": "https://www.gemini.com/cryptopedia/synthetix",
+    "html": "Synthetix is a token trading platform built on Ethereum that allows users to exchange tokenized representations and derivatives of cryptocurrencies, stocks, currencies, precious metals, and other assets in the form of ERC-20 tokens. This is accomplished through Synthetix' dual-token model, whereby users stake the platform's main token, Synthetix Network Tokens (SNX), as collateral in order to create new synthetic assets. These 'Synths' are designed to track a metric, usually price, of a real-world asset, thereby allowing users to invest in the asset without actually holding it, much like derivatives. Synthetix preceded Universal Market Access (UMA), which is also built on Ethereum and was launched to achieve a similar purpose."
+}
